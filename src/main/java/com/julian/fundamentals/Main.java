@@ -1,5 +1,6 @@
 package com.julian.fundamentals;
 
+import com.julian.fundamentals.Collections.Concessionaire;
 import com.julian.fundamentals.Exercises.Car;
 import com.julian.fundamentals.Exercises.ElectricCar;
 import com.julian.fundamentals.Exercises.Vehicle;
@@ -13,24 +14,42 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-    List<Vehicle> vehicles = new ArrayList<>();
-    vehicles.add(new Car("TOYOTA", "COROLLA", 2020, 4));
-    vehicles.add(new Car("CHEVROLET", "CAMARO SS", 2023, 2));
-    vehicles.add(new Car("MAZDA", "CX-30", 2026, 4));
-    vehicles.add(new Car("MITSUBISHI", "OUTLANDER", 2006, 4));
-    vehicles.add(new Car("LAMBORGHINI", "V8 SUV", 2026, 2));
-    ElectricCar tesla = new ElectricCar("Tesla", "Model 3", 2023, 4);
-    vehicles.add(tesla);
-    System.out.println("Level battery: " + tesla.getBatteryLevel() + "%");
-    tesla.chargeBattery(30);
-    System.out.println("Final level battery: " + tesla.getBatteryLevel() + "%");
-    System.out.println("Electric maintenance: $" + tesla.calculateCostMaintenance());
+//    List<Vehicle> vehicles = new ArrayList<>();
+//    vehicles.add(new Car("TOYOTA", "COROLLA", 2020, 4));
+//    vehicles.add(new Car("CHEVROLET", "CAMARO SS", 2023, 2));
+//    vehicles.add(new Car("MAZDA", "CX-30", 2026, 4));
+//    vehicles.add(new Car("MITSUBISHI", "OUTLANDER", 2006, 4));
+//    vehicles.add(new Car("LAMBORGHINI", "V8 SUV", 2026, 2));
+//    ElectricCar tesla = new ElectricCar("Tesla", "Model 3", 2023, 4);
+//    vehicles.add(tesla);
+//    System.out.println("Level battery: " + tesla.getBatteryLevel() + "%");
+//    tesla.chargeBattery(30);
+//    System.out.println("Final level battery: " + tesla.getBatteryLevel() + "%");
+//    System.out.println("Electric maintenance: $" + tesla.calculateCostMaintenance());
+//
+//    for (Vehicle vehicle : vehicles) {
+//        vehicle.showInfoVehicle();
+//        System.out.println("Cost maintenance: $" + vehicle.calculateCostMaintenance());
+//    }
 
-    for (Vehicle vehicle : vehicles) {
+    Concessionaire concessionaire = new Concessionaire();
+
+    concessionaire.addVehicle(new Car("TOYOTA", "PRADO", 2025, 4));
+    concessionaire.addVehicle(new Car("TOYOTA", "HILUX", 2024, 4));
+    concessionaire.addVehicle(new Car("FORD", "MUSTANG", 2023, 2));
+    concessionaire.addVehicle(new ElectricCar("TESLA", "MODEL 3", 2026, 4));
+    concessionaire.addVehicle(new ElectricCar("TESLA", "MODEL 6", 2026, 4));
+
+    concessionaire.showInventory();
+
+    System.out.println("Brand with must vehicles: " + concessionaire.getBrandWithMustVehicles());
+    System.out.println("----- ELECTRIC VEHICLES -----");
+    List<Vehicle> electrics = concessionaire.getElectricVehicles();
+    for (Vehicle vehicle : electrics) {
         vehicle.showInfoVehicle();
-        System.out.println("Cost maintenance: $" + vehicle.calculateCostMaintenance());
     }
 
+    System.out.println("Total electrics: " + electrics.size());
 
 
     }
