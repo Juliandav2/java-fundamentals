@@ -5,6 +5,7 @@ import com.julian.fundamentals.Excercises2.Catalog;
 import com.julian.fundamentals.Excercises2.Content;
 import com.julian.fundamentals.Excercises2.Movie;
 import com.julian.fundamentals.Excercises2.Series;
+import com.julian.fundamentals.Excercises3.*;
 import com.julian.fundamentals.Exercises.Car;
 import com.julian.fundamentals.Exercises.ElectricCar;
 import com.julian.fundamentals.Exercises.Vehicle;
@@ -58,25 +59,82 @@ public class Main {
 //
 //    }
 
-        Catalog catalog = new Catalog();
-        catalog.addContent(new Movie("Bee Movie", 2007, "Children", 90));
-        catalog.addContent(new Movie("Toy Story 2", 1999, "Children", 94));
-        catalog.addContent(new Movie("Inside Out", 2015, "Children", 94));
+//        Catalog catalog = new Catalog();
+//        catalog.addContent(new Movie("Bee Movie", 2007, "Children", 90));
+//        catalog.addContent(new Movie("Toy Story 2", 1999, "Children", 94));
+//        catalog.addContent(new Movie("Inside Out", 2015, "Children", 94));
+//
+//        catalog.addContent(new Series("Breaking Bad", 2008, "Drama - Humor", 5));
+//        catalog.addContent(new Series("Attack On Titan", 2013, "Dark Fantasy - Action - Drama", 4));
+//
+//
+//        catalog.showCatalog();
+//
+//        System.out.println("Gender with must Must popular: " + catalog.genderMustPopular());
+//        System.out.println("----- MOVIES -----");
+//        List<Content> contents = catalog.getOnlyMovies();
+//        for (Content content : contents) {
+//            content.showInfo();
+//        }
+//
+//
+//        System.out.println("Total hours: " + contents.size());
 
-        catalog.addContent(new Series("Breaking Bad", 2008, "Drama - Humor", 5));
-        catalog.addContent(new Series("Attack On Titan", 2013, "Dark Fantasy - Action - Drama", 4));
+        Player player1 = new Player("Julian", 21, 500);
+        Player player2 = new Player("Andres", 23, 534);
+        Player player3 = new Player("Camilo", 25, 555);
 
+        Player player4 = new Player("Andrea", 23, 400);
+        Player player5 = new Player("Maria Jose", 34, 500);
+        Player player6 = new Player("Josefina", 35, 600);
 
-        catalog.showCatalog();
+        Team team1 = new Team("Gamers");
+        Team team2 = new Team("Lolis");
 
-        System.out.println("Gender with must Must popular: " + catalog.genderMustPopular());
-        System.out.println("----- MOVIES -----");
-        List<Content> contents = catalog.getOnlyMovies();
-        for (Content content : contents) {
-            content.showInfo();
+        team1.addPlayer(player1);
+        team1.addPlayer(player2);
+        team1.addPlayer(player3);
+
+        team2.addPlayer(player4);
+        team2.addPlayer(player5);
+        team2.addPlayer(player6);
+
+        Tournament tournament = new Tournament("Olympics");
+        tournament.enroll(player1);
+        tournament.enroll(player2);
+        tournament.enroll(player3);
+        tournament.enroll(player4);
+        tournament.enroll(player5);
+        tournament.enroll(player6);
+        tournament.enroll(team1);
+        tournament.enroll(team2);
+
+        player1.sumPoints(500);
+        player3.sumPoints(534);
+        player4.sumPoints(555);
+
+        tournament.updateScoreboard(player1);
+        tournament.updateScoreboard(player2);
+        tournament.updateScoreboard(player3);
+        tournament.updateScoreboard(player4);
+        tournament.updateScoreboard(player5);
+        tournament.updateScoreboard(player6);
+        tournament.updateScoreboard(team1);
+        tournament.updateScoreboard(team2);
+
+        System.out.println("=== SCOREBOARD ===");
+        tournament.showScoreboard();
+
+        System.out.println("\nLeader: " + tournament.getLeader());
+
+        System.out.println("\n=== ONLY TEAMS ===");
+        for (Competitor competitor : tournament.onlyTeams()) {
+            System.out.println(competitor.getName() + " | Score: " + competitor.getScore());
         }
 
 
-        System.out.println("Total hours: " + contents.size());
+
+
+
     }
 }
