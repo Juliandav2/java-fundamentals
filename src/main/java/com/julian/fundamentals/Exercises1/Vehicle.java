@@ -1,4 +1,4 @@
-package com.julian.fundamentals.Exercises;
+package com.julian.fundamentals.Exercises1;
 
 public abstract class Vehicle {
 

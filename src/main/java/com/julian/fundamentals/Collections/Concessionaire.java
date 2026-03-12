@@ -1,7 +1,7 @@
 package com.julian.fundamentals.Collections;
 
-import com.julian.fundamentals.Exercises.ElectricCar;
-import com.julian.fundamentals.Exercises.Vehicle;
+import com.julian.fundamentals.Exercises1.ElectricCar;
+import com.julian.fundamentals.Exercises1.Vehicle;
 
 import java.util.ArrayList;
 import java.util.HashMap;
