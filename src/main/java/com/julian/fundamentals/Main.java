@@ -1,9 +1,15 @@
 package com.julian.fundamentals;
 
+import com.julian.fundamentals.Excercise5.Student;
+import com.julian.fundamentals.Excercise5.Teacher;
+import com.julian.fundamentals.Excercise5.University;
 import com.julian.fundamentals.Excercises3.*;
 import com.julian.fundamentals.Excercises4.Doctor;
 import com.julian.fundamentals.Excercises4.Hospital;
 import com.julian.fundamentals.Excercises4.Patient;
+import com.julian.fundamentals.Logic.Exercise1;
+
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -121,51 +127,118 @@ public class Main {
 //            System.out.println(competitor.getName() + " | Score: " + competitor.getScore());
 //        }
 
-        Doctor doctor1 = new Doctor("Jaime", "12345", "Pediatrician", 4);
-        Doctor doctor2 = new Doctor("Camilo", "54321", "Geriatrician", 6);
-        Doctor doctor3 = new Doctor("Jaime", "15432", "Cardiologist", 7);
+//        Doctor doctor1 = new Doctor("Jaime", "12345", "Pediatrician", 4);
+//        Doctor doctor2 = new Doctor("Camilo", "54321", "Geriatrician", 6);
+//        Doctor doctor3 = new Doctor("Jaime", "15432", "Cardiologist", 7);
+//
+//        Patient patient1 = new Patient("Natalia", "3333", 19, "Chronic", 10);
+//        Patient patient2 = new Patient("Andrea", "7564", 22, "Acute", 4);
+//        Patient patient3 = new Patient("Nicole", "8556", 22, "Stable", 1);
+//        Patient patient4 = new Patient("Carolina", "2423", 21, "In remission", 6);
+//        Patient patient5 = new Patient("Kelly", "85432", 23, "Chronic", 3);
+//        Patient patient6 = new Patient("Sandra", "66422", 23, "Malignant", 8);
+//
+//        Hospital hospital = new Hospital("San Jose");
+//
+//        hospital.registerDoctor(doctor1);
+//        hospital.registerDoctor(doctor2);
+//        hospital.registerDoctor(doctor3);
+//
+//        hospital.admitPatient(patient1);
+//        hospital.admitPatient(patient2);
+//        hospital.admitPatient(patient3);
+//        hospital.admitPatient(patient4);
+//        hospital.admitPatient(patient5);
+//        hospital.admitPatient(patient6);
+//
+//        System.out.println("----- SERVING -----");
+//        hospital.getStatistics();
+//
+//        System.out.println("----- SERVING -----");
+//        Patient served1 = hospital.careForPatient();
+//        hospital.getDoctorForSpeciality("Pediatrician").attendPatient();
+//
+//        Patient served2 = hospital.careForPatient();
+//        hospital.getDoctorForSpeciality("Geriatrician").attendPatient();
+//
+//        Patient served3 = hospital.careForPatient();
+//        hospital.getDoctorForSpeciality("Cardiologist").attendPatient();
+//
+//        System.out.println("=== DOCTORS ===");
+//        System.out.println(doctor1.getName() + " | Served: " + doctor1.getPatientsServed());
+//        System.out.println(doctor2.getName() + " | Served: " + doctor2.getPatientsServed());
+//        System.out.println(doctor3.getName() + " | Served: " + doctor3.getPatientsServed());
+//
+//
+//        System.out.println("\n=== STATISTICS AFTER ===");
+//        hospital.getStatistics();
+//    }
 
-        Patient patient1 = new Patient("Natalia", "3333", 19, "Chronic", 10);
-        Patient patient2 = new Patient("Andrea", "7564", 22, "Acute", 4);
-        Patient patient3 = new Patient("Nicole", "8556", 22, "Stable", 1);
-        Patient patient4 = new Patient("Carolina", "2423", 21, "In remission", 6);
-        Patient patient5 = new Patient("Kelly", "85432", 23, "Chronic", 3);
-        Patient patient6 = new Patient("Sandra", "66422", 23, "Malignant", 8);
+        Teacher teacher1 = new Teacher("German Andres", "4343", "Programming I");
+        Teacher teacher2 = new Teacher("Gustavo Adolfo", "6565", "Data Bases II");
 
-        Hospital hospital = new Hospital("San Jose");
+        Student student1 = new Student("Julian David", "3232", "Systems Engineering");
+        Student student2 = new Student("Juan Esteban", "5454", "Systems Engineering");
+        Student student3 = new Student("Edward Jonny","9090", "Systems Engineering" );
+        Student student4 = new Student("Diego Andres", "5757", "Systems Engineering");
+        Student student5 = new Student("Jonn Viera", "4242", "Systems Engineering");
 
-        hospital.registerDoctor(doctor1);
-        hospital.registerDoctor(doctor2);
-        hospital.registerDoctor(doctor3);
+        student1.addNote(9.0);
+        student1.addNote(9.0);
+        student1.addNote(8.8);
+        student1.addNote(9.7);
+        student2.addNote(2.8);
+        student2.addNote(2.7);
+        student2.addNote(7.8);
+        student2.addNote(3.2);
+        student3.addNote(2.2);
+        student3.addNote(2.9);
+        student3.addNote(2.1);
+        student3.addNote(5.6);
+        student4.addNote(7.7);
+        student4.addNote(4.4);
+        student4.addNote(3.4);
+        student4.addNote(9.6);
+        student5.addNote(3.3);
+        student5.addNote(2.1);
+        student5.addNote(7.6);
+        student5.addNote(10.0);
 
-        hospital.admitPatient(patient1);
-        hospital.admitPatient(patient2);
-        hospital.admitPatient(patient3);
-        hospital.admitPatient(patient4);
-        hospital.admitPatient(patient5);
-        hospital.admitPatient(patient6);
+        University university = new University("Unremitting");
 
-        System.out.println("----- SERVING -----");
-        hospital.getStatistics();
+        university.addStudent(student1);
+        university.addStudent(student2);
+        university.addStudent(student3);
+        university.addStudent(student4);
+        university.addStudent(student5);
 
-        System.out.println("----- SERVING -----");
-        Patient served1 = hospital.careForPatient();
-        hospital.getDoctorForSpeciality("Pediatrician").attendPatient();
+        university.addTeacher(teacher1);
+        university.addTeacher(teacher2);
 
-        Patient served2 = hospital.careForPatient();
-        hospital.getDoctorForSpeciality("Geriatrician").attendPatient();
+        university.assignStudentToSubject("Programming I", student1);
+        university.assignStudentToSubject("Programming I", student2);
+        university.assignStudentToSubject("Programming I", student3);
+        university.assignStudentToSubject("Data Bases II", student3);
+        university.assignStudentToSubject("Data Bases II", student3);
 
-        Patient served3 = hospital.careForPatient();
-        hospital.getDoctorForSpeciality("Cardiologist").attendPatient();
-
-        System.out.println("=== DOCTORS ===");
-        System.out.println(doctor1.getName() + " | Served: " + doctor1.getPatientsServed());
-        System.out.println(doctor2.getName() + " | Served: " + doctor2.getPatientsServed());
-        System.out.println(doctor3.getName() + " | Served: " + doctor3.getPatientsServed());
+        System.out.println("=== STATISTICS ===");
+        university.getStatistics();
 
 
-        System.out.println("\n=== STATISTICS AFTER ===");
-        hospital.getStatistics();
+        System.out.println("\n=== RANKING ===");
+        List<Student> ranking = university.getRankingStudents();
+        for (Student student : ranking) {
+            System.out.println(student.getName() + " | Average: " + student.getAverage());
+        }
+
+
+        System.out.println("\n=== BEST STUDENT PER TEACHER ===");
+        Student best1 = teacher1.getBestStudent();
+        Student best2 = teacher2.getBestStudent();
+        System.out.println(teacher1.getName() + " → " + best1.getName() + " | Average: " + best1.getAverage());
+        System.out.println(teacher2.getName() + " → " + best2.getName() + " | Average: " + best2.getAverage());
+
     }
+
 
 }
