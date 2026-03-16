@@ -3,6 +3,7 @@ package com.julian.fundamentals;
 import com.julian.fundamentals.Excercise5.Student;
 import com.julian.fundamentals.Excercise5.Teacher;
 import com.julian.fundamentals.Excercise5.University;
+import com.julian.fundamentals.Excercise6.*;
 import com.julian.fundamentals.Excercises3.*;
 import com.julian.fundamentals.Excercises4.Doctor;
 import com.julian.fundamentals.Excercises4.Hospital;
@@ -174,71 +175,118 @@ public class Main {
 //        hospital.getStatistics();
 //    }
 
-        Teacher teacher1 = new Teacher("German Andres", "4343", "Programming I");
-        Teacher teacher2 = new Teacher("Gustavo Adolfo", "6565", "Data Bases II");
+//        Teacher teacher1 = new Teacher("German Andres", "4343", "Programming I");
+//        Teacher teacher2 = new Teacher("Gustavo Adolfo", "6565", "Data Bases II");
+//
+//        Student student1 = new Student("Julian David", "3232", "Systems Engineering");
+//        Student student2 = new Student("Juan Esteban", "5454", "Systems Engineering");
+//        Student student3 = new Student("Edward Jonny","9090", "Systems Engineering" );
+//        Student student4 = new Student("Diego Andres", "5757", "Systems Engineering");
+//        Student student5 = new Student("Jonn Viera", "4242", "Systems Engineering");
+//
+//        student1.addNote(9.0);
+//        student1.addNote(9.0);
+//        student1.addNote(8.8);
+//        student1.addNote(9.7);
+//        student2.addNote(2.8);
+//        student2.addNote(2.7);
+//        student2.addNote(7.8);
+//        student2.addNote(3.2);
+//        student3.addNote(2.2);
+//        student3.addNote(2.9);
+//        student3.addNote(2.1);
+//        student3.addNote(5.6);
+//        student4.addNote(7.7);
+//        student4.addNote(4.4);
+//        student4.addNote(3.4);
+//        student4.addNote(9.6);
+//        student5.addNote(3.3);
+//        student5.addNote(2.1);
+//        student5.addNote(7.6);
+//        student5.addNote(10.0);
+//
+//        University university = new University("Unremitting");
+//
+//        university.addStudent(student1);
+//        university.addStudent(student2);
+//        university.addStudent(student3);
+//        university.addStudent(student4);
+//        university.addStudent(student5);
+//
+//        university.addTeacher(teacher1);
+//        university.addTeacher(teacher2);
+//
+//        university.assignStudentToSubject("Programming I", student1);
+//        university.assignStudentToSubject("Programming I", student2);
+//        university.assignStudentToSubject("Programming I", student3);
+//        university.assignStudentToSubject("Data Bases II", student3);
+//        university.assignStudentToSubject("Data Bases II", student3);
+//
+//        System.out.println("=== STATISTICS ===");
+//        university.getStatistics();
+//
+//
+//        System.out.println("\n=== RANKING ===");
+//        List<Student> ranking = university.getRankingStudents();
+//        for (Student student : ranking) {
+//            System.out.println(student.getName() + " | Average: " + student.getAverage());
+//        }
+//
+//
+//        System.out.println("\n=== BEST STUDENT PER TEACHER ===");
+//        Student best1 = teacher1.getBestStudent();
+//        Student best2 = teacher2.getBestStudent();
+//        System.out.println(teacher1.getName() + " → " + best1.getName() + " | Average: " + best1.getAverage());
+//        System.out.println(teacher2.getName() + " → " + best2.getName() + " | Average: " + best2.getAverage());
+//
+        User user1 = new User("Julian", "mezka28@gmail.com");
+        User user2 = new User("Juan", "pancoco@gmail.com");
+        User user3 = new User("Luis", "pretty@gmail.com");
 
-        Student student1 = new Student("Julian David", "3232", "Systems Engineering");
-        Student student2 = new Student("Juan Esteban", "5454", "Systems Engineering");
-        Student student3 = new Student("Edward Jonny","9090", "Systems Engineering" );
-        Student student4 = new Student("Diego Andres", "5757", "Systems Engineering");
-        Student student5 = new Student("Jonn Viera", "4242", "Systems Engineering");
+        Book book1 = new Book("Clean Code", "B001", 2008, "Robert C. Martin", 431);
+        Book book2 = new Book("Effective Java", "B002", 2018, "Joshua Bloch", 412);
+        Book book3 = new Book("The Pragmatic Programmer", "B003", 1999, "Andrew Hunt", 352);
+        Book book4 = new Book("Spring in Action", "B004", 2022, "Craig Walls", 520);
 
-        student1.addNote(9.0);
-        student1.addNote(9.0);
-        student1.addNote(8.8);
-        student1.addNote(9.7);
-        student2.addNote(2.8);
-        student2.addNote(2.7);
-        student2.addNote(7.8);
-        student2.addNote(3.2);
-        student3.addNote(2.2);
-        student3.addNote(2.9);
-        student3.addNote(2.1);
-        student3.addNote(5.6);
-        student4.addNote(7.7);
-        student4.addNote(4.4);
-        student4.addNote(3.4);
-        student4.addNote(9.6);
-        student5.addNote(3.3);
-        student5.addNote(2.1);
-        student5.addNote(7.6);
-        student5.addNote(10.0);
+        Magazine mag1 = new Magazine("National Geographic", "M001", 2023, 1);
+        Magazine mag2 = new Magazine("Forbes", "M002", 2024, 2);
+        Magazine mag3 = new Magazine("Time", "M003", 2022, 3);
 
-        University university = new University("Unremitting");
+        Library library = new Library("Library of Congress");
 
-        university.addStudent(student1);
-        university.addStudent(student2);
-        university.addStudent(student3);
-        university.addStudent(student4);
-        university.addStudent(student5);
+        library.userRegister(user1);
+        library.userRegister(user2);
+        library.userRegister(user3);
 
-        university.addTeacher(teacher1);
-        university.addTeacher(teacher2);
+        library.addMaterial(book1);
+        library.addMaterial(book2);
+        library.addMaterial(book3);
+        library.addMaterial(book4);
+        library.addMaterial(mag1);
+        library.addMaterial(mag2);
+        library.addMaterial(mag3);
 
-        university.assignStudentToSubject("Programming I", student1);
-        university.assignStudentToSubject("Programming I", student2);
-        university.assignStudentToSubject("Programming I", student3);
-        university.assignStudentToSubject("Data Bases II", student3);
-        university.assignStudentToSubject("Data Bases II", student3);
+        System.out.println("=== BEFORE ===");
+        library.getStatistics();
 
-        System.out.println("=== STATISTICS ===");
-        university.getStatistics();
+        user1.borrow(book1);
+        user1.borrow(book2);
+        user2.borrow(book3);
+        user3.borrow(mag1);
 
+        System.out.println("\n=== AFTER BORROWING ===");
+        library.getStatistics();
 
-        System.out.println("\n=== RANKING ===");
-        List<Student> ranking = university.getRankingStudents();
-        for (Student student : ranking) {
-            System.out.println(student.getName() + " | Average: " + student.getAverage());
+        user1.returnMaterial(book1);
+
+        System.out.println("\n=== AFTER RETURNING ===");
+        library.getStatistics();
+
+        System.out.println("\n=== AVAILABLE ===");
+        for (Material m : library.getMaterialsAvailable()) {
+            m.showInfo();
         }
 
-
-        System.out.println("\n=== BEST STUDENT PER TEACHER ===");
-        Student best1 = teacher1.getBestStudent();
-        Student best2 = teacher2.getBestStudent();
-        System.out.println(teacher1.getName() + " → " + best1.getName() + " | Average: " + best1.getAverage());
-        System.out.println(teacher2.getName() + " → " + best2.getName() + " | Average: " + best2.getAverage());
-
     }
-
 
 }
