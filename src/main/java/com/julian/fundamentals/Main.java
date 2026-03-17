@@ -8,6 +8,7 @@ import com.julian.fundamentals.Excercises3.*;
 import com.julian.fundamentals.Excercises4.Doctor;
 import com.julian.fundamentals.Excercises4.Hospital;
 import com.julian.fundamentals.Excercises4.Patient;
+import com.julian.fundamentals.Excercises7.*;
 import com.julian.fundamentals.Logic.Exercise1;
 
 import java.util.List;
@@ -239,53 +240,94 @@ public class Main {
 //        System.out.println(teacher1.getName() + " → " + best1.getName() + " | Average: " + best1.getAverage());
 //        System.out.println(teacher2.getName() + " → " + best2.getName() + " | Average: " + best2.getAverage());
 //
-        User user1 = new User("Julian", "mezka28@gmail.com");
-        User user2 = new User("Juan", "pancoco@gmail.com");
-        User user3 = new User("Luis", "pretty@gmail.com");
+//        User user1 = new User("Julian", "mezka28@gmail.com");
+//        User user2 = new User("Juan", "pancoco@gmail.com");
+//        User user3 = new User("Luis", "pretty@gmail.com");
+//
+//        Book book1 = new Book("Clean Code", "B001", 2008, "Robert C. Martin", 431);
+//        Book book2 = new Book("Effective Java", "B002", 2018, "Joshua Bloch", 412);
+//        Book book3 = new Book("The Pragmatic Programmer", "B003", 1999, "Andrew Hunt", 352);
+//        Book book4 = new Book("Spring in Action", "B004", 2022, "Craig Walls", 520);
+//
+//        Magazine mag1 = new Magazine("National Geographic", "M001", 2023, 1);
+//        Magazine mag2 = new Magazine("Forbes", "M002", 2024, 2);
+//        Magazine mag3 = new Magazine("Time", "M003", 2022, 3);
+//
+//        Library library = new Library("Library of Congress");
+//
+//        library.userRegister(user1);
+//        library.userRegister(user2);
+//        library.userRegister(user3);
+//
+//        library.addMaterial(book1);
+//        library.addMaterial(book2);
+//        library.addMaterial(book3);
+//        library.addMaterial(book4);
+//        library.addMaterial(mag1);
+//        library.addMaterial(mag2);
+//        library.addMaterial(mag3);
+//
+//        System.out.println("=== BEFORE ===");
+//        library.getStatistics();
+//
+//        user1.borrow(book1);
+//        user1.borrow(book2);
+//        user2.borrow(book3);
+//        user3.borrow(mag1);
+//
+//        System.out.println("\n=== AFTER BORROWING ===");
+//        library.getStatistics();
+//
+//        user1.returnMaterial(book1);
+//
+//        System.out.println("\n=== AFTER RETURNING ===");
+//        library.getStatistics();
+//
+//        System.out.println("\n=== AVAILABLE ===");
+//        for (Material m : library.getMaterialsAvailable()) {
+//            m.showInfo();
+//        }
 
-        Book book1 = new Book("Clean Code", "B001", 2008, "Robert C. Martin", 431);
-        Book book2 = new Book("Effective Java", "B002", 2018, "Joshua Bloch", 412);
-        Book book3 = new Book("The Pragmatic Programmer", "B003", 1999, "Andrew Hunt", 352);
-        Book book4 = new Book("Spring in Action", "B004", 2022, "Craig Walls", 520);
+        Product product1 = new PhysicalProduct("T-Shirt", "TSH-001", "Clothing", 29.99, 50, 0.3);
+        Product product2 = new PhysicalProduct("Laptop", "LAP-001", "Electronics", 999.99, 10, 2.5);
+        Product product3 = new PhysicalProduct("Headphones", "HEAD-001", "Electronics", 79.99, 30, 0.5);
 
-        Magazine mag1 = new Magazine("National Geographic", "M001", 2023, 1);
-        Magazine mag2 = new Magazine("Forbes", "M002", 2024, 2);
-        Magazine mag3 = new Magazine("Time", "M003", 2022, 3);
+        Product product4 = new DigitalProduct("Microsoft Office", "MS-OFF-001", "Software", 149.99, 100);
+        Product product5 = new DigitalProduct("Photoshop", "PS-001", "Software", 54.99, 50);
 
-        Library library = new Library("Library of Congress");
+        Store store = new Store("Amazon");
+        store.addProduct(product1);
+        store.addProduct(product2);
+        store.addProduct(product3);
+        store.addProduct(product4);
+        store.addProduct(product5);
 
-        library.userRegister(user1);
-        library.userRegister(user2);
-        library.userRegister(user3);
+        store.createCart("Julian");
+        store.createCart("Juan");
 
-        library.addMaterial(book1);
-        library.addMaterial(book2);
-        library.addMaterial(book3);
-        library.addMaterial(book4);
-        library.addMaterial(mag1);
-        library.addMaterial(mag2);
-        library.addMaterial(mag3);
+        ShoppingCart shoppingCart1 = store.getShoppingCart("Julian");
+        ShoppingCart shoppingCart2 = store.getShoppingCart("Juan");
 
-        System.out.println("=== BEFORE ===");
-        library.getStatistics();
+        shoppingCart1.addItem((Salable) product1, 4);
+        shoppingCart1.addItem((Salable) product5, 2);
+        shoppingCart2.addItem((Salable) product4, 7);
+        shoppingCart2.addItem((Salable) product2, 6);
 
-        user1.borrow(book1);
-        user1.borrow(book2);
-        user2.borrow(book3);
-        user3.borrow(mag1);
+        System.out.println("=== CART JULIAN ===");
+        shoppingCart1.showShoppingCart();
 
-        System.out.println("\n=== AFTER BORROWING ===");
-        library.getStatistics();
+        System.out.println("\n=== CART JUAN ===");
+        shoppingCart2.showShoppingCart();
 
-        user1.returnMaterial(book1);
+        System.out.println("\n=== BEFORE PURCHASE ===");
+        store.getStatistics();
 
-        System.out.println("\n=== AFTER RETURNING ===");
-        library.getStatistics();
+        System.out.println("\n=== PURCHASING ===");
+        shoppingCart1.makePurchase();
+        shoppingCart2.makePurchase();
 
-        System.out.println("\n=== AVAILABLE ===");
-        for (Material m : library.getMaterialsAvailable()) {
-            m.showInfo();
-        }
+        System.out.println("\n=== AFTER PURCHASE ===");
+        store.getStatistics();
 
     }
 
