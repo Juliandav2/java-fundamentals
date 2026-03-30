@@ -1,5 +1,7 @@
 package com.julian.fundamentals.Excercise6;
 
+import com.julian.fundamentals.Exceptions.ProductNotAvailableException;
+
 public class Book extends Material implements Payable {
 
     private String author;
@@ -37,7 +39,7 @@ public class Book extends Material implements Payable {
     @Override
     public void lend() {
         if (!isAvailable()) {
-            throw new IllegalStateException("The book is already lent");
+            throw new ProductNotAvailableException("The book is already lent");
         }
         this.available = false;
     }

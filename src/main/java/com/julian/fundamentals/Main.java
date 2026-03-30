@@ -1,5 +1,7 @@
 package com.julian.fundamentals;
 
+import com.julian.fundamentals.Exceptions.EmptyCartException;
+import com.julian.fundamentals.Exceptions.InsufficientStockException;
 import com.julian.fundamentals.Excercise5.Student;
 import com.julian.fundamentals.Excercise5.Teacher;
 import com.julian.fundamentals.Excercise5.University;
@@ -292,73 +294,92 @@ public class Main {
 //            m.showInfo();
 //        }
 
-//        Product product1 = new PhysicalProduct("T-Shirt", "TSH-001", "Clothing", 29.99, 50, 0.3);
-//        Product product2 = new PhysicalProduct("Laptop", "LAP-001", "Electronics", 999.99, 10, 2.5);
-//        Product product3 = new PhysicalProduct("Headphones", "HEAD-001", "Electronics", 79.99, 30, 0.5);
-//
-//        Product product4 = new DigitalProduct("Microsoft Office", "MS-OFF-001", "Software", 149.99, 100);
-//        Product product5 = new DigitalProduct("Photoshop", "PS-001", "Software", 54.99, 50);
-//
-//        Store store = new Store("Amazon");
-//        store.addProduct(product1);
-//        store.addProduct(product2);
-//        store.addProduct(product3);
-//        store.addProduct(product4);
-//        store.addProduct(product5);
-//
-//        store.createCart("Julian");
-//        store.createCart("Juan");
-//
-//        ShoppingCart shoppingCart1 = store.getShoppingCart("Julian");
-//        ShoppingCart shoppingCart2 = store.getShoppingCart("Juan");
-//
-//        shoppingCart1.addItem((Salable) product1, 4);
-//        shoppingCart1.addItem((Salable) product5, 2);
-//        shoppingCart2.addItem((Salable) product4, 7);
-//        shoppingCart2.addItem((Salable) product2, 6);
-//
-//        System.out.println("=== CART JULIAN ===");
-//        shoppingCart1.showShoppingCart();
-//
-//        System.out.println("\n=== CART JUAN ===");
-//        shoppingCart2.showShoppingCart();
-//
-//        System.out.println("\n=== BEFORE PURCHASE ===");
-//        store.getStatistics();
-//
-//        System.out.println("\n=== PURCHASING ===");
-//        shoppingCart1.makePurchase();
-//        shoppingCart2.makePurchase();
-//
-//        System.out.println("\n=== AFTER PURCHASE ===");
-//        store.getStatistics();
+        Product product1 = new PhysicalProduct("T-Shirt", "TSH-001", "Clothing", 29.99, 50, 0.3);
+        Product product2 = new PhysicalProduct("Laptop", "LAP-001", "Electronics", 999.99, 10, 2.5);
+        Product product3 = new PhysicalProduct("Headphones", "HEAD-001", "Electronics", 79.99, 30, 0.5);
 
-        Bus bus1 = new Bus("ABC123", "Mercedes", 2020, 40);
-        Bus bus2 = new Bus("XYZ789", "Volvo", 2018, 30);
-        Taxi taxi1 = new Taxi("TAX001", "Toyota", 2022, 4);
-        Taxi taxi2 = new Taxi("TAX002", "Kia", 2021, 4);
+        Product product4 = new DigitalProduct("Microsoft Office", "MS-OFF-001", "Software", 149.99, 100);
+        Product product5 = new DigitalProduct("Photoshop", "PS-001", "Software", 54.99, 50);
 
-        TransportTerminal terminal = new TransportTerminal();
-        terminal.registerVehicle(bus1);
-        terminal.registerVehicle(bus2);
-        terminal.registerVehicle(taxi1);
-        terminal.registerVehicle(taxi2);
+        Store store = new Store("Amazon");
+        store.addProduct(product1);
+        store.addProduct(product2);
+        store.addProduct(product3);
+        store.addProduct(product4);
+        store.addProduct(product5);
 
-        bus1.board(25);
-        bus2.board(30);
-        taxi1.board(3);
-        taxi2.board(2);
+        store.createCart("Julian");
+        store.createCart("Juan");
 
-        System.out.println("=== STATISTICS ===");
-        terminal.getStatics();
+        ShoppingCart shoppingCart1 = store.getShoppingCart("Julian");
+        ShoppingCart shoppingCart2 = store.getShoppingCart("Juan");
 
-        System.out.println("\n=== SEARCH ===");
-        Vehicle v = terminal.searchForPlate("ABC123");
-        v.showInfo();
+        shoppingCart1.addItem((Salable) product1, 4);
+        shoppingCart1.addItem((Salable) product5, 2);
+        shoppingCart2.addItem((Salable) product4, 7);
+        shoppingCart2.addItem((Salable) product2, 6);
 
-        System.out.println("\n=== AVAILABLE ===");
-        for (Vehicle vehicle : terminal.getVehiclesAvailable()) {
-            vehicle.showInfo();
+        System.out.println("=== CART JULIAN ===");
+        shoppingCart1.showShoppingCart();
+
+        System.out.println("\n=== CART JUAN ===");
+        shoppingCart2.showShoppingCart();
+
+        System.out.println("\n=== BEFORE PURCHASE ===");
+        store.getStatistics();
+
+        System.out.println("\n=== PURCHASING ===");
+        shoppingCart1.makePurchase();
+        shoppingCart2.makePurchase();
+
+        System.out.println("\n=== AFTER PURCHASE ===");
+        store.getStatistics();
+
+//        Bus bus1 = new Bus("ABC123", "Mercedes", 2020, 40);
+//        Bus bus2 = new Bus("XYZ789", "Volvo", 2018, 30);
+//        Taxi taxi1 = new Taxi("TAX001", "Toyota", 2022, 4);
+//        Taxi taxi2 = new Taxi("TAX002", "Kia", 2021, 4);
+//
+//        TransportTerminal terminal = new TransportTerminal();
+//        terminal.registerVehicle(bus1);
+//        terminal.registerVehicle(bus2);
+//        terminal.registerVehicle(taxi1);
+//        terminal.registerVehicle(taxi2);
+//
+//        bus1.board(25);
+//        bus2.board(30);
+//        taxi1.board(3);
+//        taxi2.board(2);
+//
+//        System.out.println("=== STATISTICS ===");
+//        terminal.getStatics();
+//
+//        System.out.println("\n=== SEARCH ===");
+//        Vehicle v = terminal.searchForPlate("ABC123");
+//        v.showInfo();
+//
+//        System.out.println("\n=== AVAILABLE ===");
+//        for (Vehicle vehicle : terminal.getVehiclesAvailable()) {
+//            vehicle.showInfo();
+//        }
+
+        // Prueba 1: stock insuficiente
+        System.out.println("\n=== TEST INSUFFICIENT STOCK ===");
+        try {
+            PhysicalProduct test = new PhysicalProduct("Test", "T001", "Test", 10.0, 3, 0.5);
+            test.sell(10);
+        } catch (InsufficientStockException e) {
+            System.out.println("Available: " + e.getAvailableStock());
+            System.out.println("Requested: " + e.getSolicitedStock());
+        }
+
+// Prueba 2: carrito vacío
+        System.out.println("\n=== TEST EMPTY CART ===");
+        try {
+            ShoppingCart emptyCart = new ShoppingCart("Test");
+            emptyCart.makePurchase();
+        } catch (EmptyCartException e) {
+            System.out.println("Error: " + e.getMessage());
         }
     }
 

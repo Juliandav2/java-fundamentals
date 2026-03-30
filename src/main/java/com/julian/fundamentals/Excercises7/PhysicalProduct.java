@@ -1,5 +1,7 @@
 package com.julian.fundamentals.Excercises7;
 
+import com.julian.fundamentals.Exceptions.InsufficientStockException;
+
 public class PhysicalProduct extends Product implements Salable {
 
     private double price;
@@ -48,9 +50,10 @@ public class PhysicalProduct extends Product implements Salable {
     public void sell (int quantity) {
         if (quantity <= 0) {
             throw new IllegalArgumentException("the quantity must be greater than 0");
+
         }
         if (quantity > stock) {
-            throw new IllegalStateException("Insufficient stock, stock: " + stock + ", you asked: " + quantity);
+            throw new InsufficientStockException(stock, quantity);
         }
         stock -= quantity;
     }

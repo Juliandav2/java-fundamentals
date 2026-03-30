@@ -1,5 +1,8 @@
 package com.julian.fundamentals.Excercises7;
 
+import com.julian.fundamentals.Exceptions.EmptyCartException;
+import com.julian.fundamentals.Exceptions.InsufficientStockException;
+
 import javax.swing.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -62,17 +65,23 @@ public class ShoppingCart {
 
     }
 
-    public void makePurchase () {
+    public void makePurchase() {
+        if (items.isEmpty()) {
+            throw new EmptyCartException("The cart is empty");
+        }
+
         for (Map.Entry<Salable, Integer> entry : items.entrySet()) {
             Salable product = entry.getKey();
             int quantity = entry.getValue();
             try {
                 product.sell(quantity);
                 System.out.println("Sold: " + quantity + " units");
+            } catch (InsufficientStockException e) {
+                System.out.println("Insufficient stock - Available: " + e.getAvailableStock()
+                        + " | Requested: " + e.getSolicitedStock());
             } catch (Exception e) {
                 System.out.println("Error selling product: " + e.getMessage());
             }
-
         }
 
         items.clear();

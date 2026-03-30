@@ -1,5 +1,7 @@
 package com.julian.fundamentals.Excercises7;
 
+import com.julian.fundamentals.Exceptions.InsufficientStockException;
+
 public class DigitalProduct extends Product implements Salable {
 
     private double price;
@@ -42,7 +44,7 @@ public class DigitalProduct extends Product implements Salable {
             throw new IllegalArgumentException("The quantity must be greater than 0");
         }
         if (quantity > licence) {
-            throw new IllegalStateException("Insufficient licenses: there are: " + licence + ", you asked: " + quantity);
+            throw new InsufficientStockException("Insufficient licenses: there are: " + licence + ", you asked: " + quantity);
         }
         licence -= quantity;
     }

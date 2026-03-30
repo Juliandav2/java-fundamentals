@@ -1,5 +1,7 @@
 package com.julian.fundamentals.Excercise6;
 
+import com.julian.fundamentals.Exceptions.ProductNotAvailableException;
+
 public class Magazine extends Material implements Payable {
 
     private int edition;
@@ -30,7 +32,7 @@ public class Magazine extends Material implements Payable {
     @Override
     public void lend() {
         if (!isAvailable()) {
-            throw new IllegalStateException("The magazine has already been loaned out");
+            throw new ProductNotAvailableException("The magazine has already been loaned out");
         }
         this.available = false;
     }
