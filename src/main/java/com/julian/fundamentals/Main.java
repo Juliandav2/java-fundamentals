@@ -19,6 +19,7 @@ import com.julian.fundamentals.Excercises8.TransportTerminal;
 import com.julian.fundamentals.Excercises8.Vehicle;
 import com.julian.fundamentals.Exercises9.*;
 import com.julian.fundamentals.Logic.Exercise1;
+import com.julian.fundamentals.RestaurantSystem.*;
 
 import java.util.List;
 
@@ -296,48 +297,47 @@ public class Main {
 //        for (Material m : library.getMaterialsAvailable()) {
 //            m.showInfo();
 //        }
-
-        Product product1 = new PhysicalProduct("T-Shirt", "TSH-001", "Clothing", 29.99, 50, 0.3);
-        Product product2 = new PhysicalProduct("Laptop", "LAP-001", "Electronics", 999.99, 10, 2.5);
-        Product product3 = new PhysicalProduct("Headphones", "HEAD-001", "Electronics", 79.99, 30, 0.5);
-
-        Product product4 = new DigitalProduct("Microsoft Office", "MS-OFF-001", "Software", 149.99, 100);
-        Product product5 = new DigitalProduct("Photoshop", "PS-001", "Software", 54.99, 50);
-
-        Store store = new Store("Amazon");
-        store.addProduct(product1);
-        store.addProduct(product2);
-        store.addProduct(product3);
-        store.addProduct(product4);
-        store.addProduct(product5);
-
-        store.createCart("Julian");
-        store.createCart("Juan");
-
-        ShoppingCart shoppingCart1 = store.getShoppingCart("Julian");
-        ShoppingCart shoppingCart2 = store.getShoppingCart("Juan");
-
-        shoppingCart1.addItem((Salable) product1, 4);
-        shoppingCart1.addItem((Salable) product5, 2);
-        shoppingCart2.addItem((Salable) product4, 7);
-        shoppingCart2.addItem((Salable) product2, 6);
-
-        System.out.println("=== CART JULIAN ===");
-        shoppingCart1.showShoppingCart();
-
-        System.out.println("\n=== CART JUAN ===");
-        shoppingCart2.showShoppingCart();
-
-        System.out.println("\n=== BEFORE PURCHASE ===");
-        store.getStatistics();
-
-        System.out.println("\n=== PURCHASING ===");
-        shoppingCart1.makePurchase();
-        shoppingCart2.makePurchase();
-
-        System.out.println("\n=== AFTER PURCHASE ===");
-        store.getStatistics();
-
+//
+//        Product product1 = new PhysicalProduct("T-Shirt", "TSH-001", "Clothing", 29.99, 50, 0.3);
+//        Product product2 = new PhysicalProduct("Laptop", "LAP-001", "Electronics", 999.99, 10, 2.5);
+//        Product product3 = new PhysicalProduct("Headphones", "HEAD-001", "Electronics", 79.99, 30, 0.5);
+//
+//        Product product4 = new DigitalProduct("Microsoft Office", "MS-OFF-001", "Software", 149.99, 100);
+//        Product product5 = new DigitalProduct("Photoshop", "PS-001", "Software", 54.99, 50);
+//
+//        Store store = new Store("Amazon");
+//        store.addProduct(product1);
+//        store.addProduct(product2);
+//        store.addProduct(product3);
+//        store.addProduct(product4);
+//        store.addProduct(product5);
+//
+//        store.createCart("Julian");
+//        store.createCart("Juan");
+//
+//        ShoppingCart shoppingCart1 = store.getShoppingCart("Julian");
+//        ShoppingCart shoppingCart2 = store.getShoppingCart("Juan");
+//
+//        shoppingCart1.addItem((Salable) product1, 4);
+//        shoppingCart1.addItem((Salable) product5, 2);
+//        shoppingCart2.addItem((Salable) product4, 7);
+//        shoppingCart2.addItem((Salable) product2, 6);
+//
+//        System.out.println("=== CART JULIAN ===");
+//        shoppingCart1.showShoppingCart();
+//
+//        System.out.println("\n=== CART JUAN ===");
+//        shoppingCart2.showShoppingCart();
+//
+//        System.out.println("\n=== BEFORE PURCHASE ===");
+//        store.getStatistics();
+//
+//        System.out.println("\n=== PURCHASING ===");
+//        shoppingCart1.makePurchase();
+//        shoppingCart2.makePurchase();
+//
+//        System.out.println("\n=== AFTER PURCHASE ===");
+//        store.getStatistics();
 //        Bus bus1 = new Bus("ABC123", "Mercedes", 2020, 40);
 //        Bus bus2 = new Bus("XYZ789", "Volvo", 2018, 30);
 //        Taxi taxi1 = new Taxi("TAX001", "Toyota", 2022, 4);
@@ -383,40 +383,117 @@ public class Main {
 //            System.out.println("Error: " + e.getMessage());
 //        }
 //
-        Company company = new Company();
+//        Company company = new Company();
+//
+//        ContractorEmployee contractorEmployee1 = new ContractorEmployee("Julian", 3_000_000, Department.SYSTEMS, "Hasbro");
+//        ContractorEmployee contractorEmployee2 = new ContractorEmployee("Camila", 2_000_000, Department.SALES, "Mazda");
+//        ContractorEmployee contractorEmployee3 = new ContractorEmployee("Juan", 7_000_000, Department.ACCOUNTING, "Mazda");
+//
+//        PermanentEmployee permanentEmployee4 = new PermanentEmployee("Andres", 9_000_000, Department.ACCOUNTING);
+//        PermanentEmployee permanentEmployee5 = new PermanentEmployee("kevin", 10_000_000, Department.SALES);
+//        PermanentEmployee permanentEmployee6 = new PermanentEmployee("Sol", 23_000_000, Department.SYSTEMS);
+//
+//        company.RegisterEmployee(contractorEmployee1);
+//        company.RegisterEmployee(contractorEmployee2);
+//        company.RegisterEmployee(contractorEmployee3);
+//        company.RegisterEmployee(permanentEmployee4);
+//        company.RegisterEmployee(permanentEmployee5);
+//        company.RegisterEmployee(permanentEmployee6);
+//
+//        System.out.printf("Nómina total: $%,.0f%n", company.calculateTotalPayroll());
+//        System.out.println("Best paid: " + company.getBetterPaid());
+//        System.out.println("Names: " + company.listNames());
+//
+//        System.out.println("Dept SYSTEMS: " + company.getByDepartment(Department.SYSTEMS));
+//
+//        try {
+//            company.findByName("Chanty");
+//        } catch (EmployeeNotFoundException e) {
+//            System.out.println(e.getMessage());
+//        }
+//
+//        try {
+//            company.getByDepartmentOrThrow(Department.HR);
+//        } catch (EmptyDepartmentException e) {
+//            System.out.println(e.getMessage());
+//        }
 
-        ContractorEmployee contractorEmployee1 = new ContractorEmployee("Julian", 3_000_000, Department.SYSTEMS, "Hasbro");
-        ContractorEmployee contractorEmployee2 = new ContractorEmployee("Camila", 2_000_000, Department.SALES, "Mazda");
-        ContractorEmployee contractorEmployee3 = new ContractorEmployee("Juan", 7_000_000, Department.ACCOUNTING, "Mazda");
+        Restaurant restaurant = new Restaurant("Holy Bar");
 
-        PermanentEmployee permanentEmployee4 = new PermanentEmployee("Andres", 9_000_000, Department.ACCOUNTING);
-        PermanentEmployee permanentEmployee5 = new PermanentEmployee("kevin", 10_000_000, Department.SALES);
-        PermanentEmployee permanentEmployee6 = new PermanentEmployee("Sol", 23_000_000, Department.SYSTEMS);
+        Plate p1 = new Plate("Pizza", 25_000, DishCategory.STRONG_PLATE);
+        Plate p2 = new Plate("Ensalada César", 15_000, DishCategory.ENTRANCE);
+        Plate p3 = new Plate("Tiramisú", 12_000, DishCategory.DESSERT);
+        Plate p4 = new Plate("Limonade", 8_000, DishCategory.DRINK);
+        Plate p5 = new Plate("Pasta Alfredo", 22_000, DishCategory.STRONG_PLATE);
+        Plate p6 = new Plate("Soup del día", 10_000, DishCategory.ENTRANCE);
+        Plate p7 = new Plate("Brownie", 9_000, DishCategory.DESSERT);
+        Plate p8 = new Plate("Juice Natural", 7_000, DishCategory.DRINK);
 
-        company.RegisterEmployee(contractorEmployee1);
-        company.RegisterEmployee(contractorEmployee2);
-        company.RegisterEmployee(contractorEmployee3);
-        company.RegisterEmployee(permanentEmployee4);
-        company.RegisterEmployee(permanentEmployee5);
-        company.RegisterEmployee(permanentEmployee6);
+        restaurant.addToMenu(p1);
+        restaurant.addToMenu(p2);
+        restaurant.addToMenu(p3);
+        restaurant.addToMenu(p4);
+        restaurant.addToMenu(p5);
+        restaurant.addToMenu(p6);
+        restaurant.addToMenu(p7);
+        restaurant.addToMenu(p8);
 
-        System.out.printf("Nómina total: $%,.0f%n", company.calculateTotalPayroll());
-        System.out.println("Best paid: " + company.getBetterPaid());
-        System.out.println("Names: " + company.listNames());
+        Table table1 = new Table(1, 5, TableState.AVAILABLE);
+        Table table2 = new Table(2, 6, TableState.AVAILABLE);
+        Table table3 = new Table(3, 8, TableState.AVAILABLE);
+        Table table4 = new Table(4, 3, TableState.AVAILABLE);
+        Table table5 = new Table(5, 2, TableState.AVAILABLE);
 
-        System.out.println("Dept SYSTEMS: " + company.getByDepartment(Department.SYSTEMS));
+        Waiter waiter1 = new Waiter("Jaime", 1);
+        Waiter waiter2 = new Waiter("Andres", 2);
+        Waiter waiter3 = new Waiter("Jorge", 3);
 
-        try {
-            company.findByName("Chanty");
-        } catch (EmployeeNotFoundException e) {
-            System.out.println(e.getMessage());
-        }
+        restaurant.addTable(table1);
+        restaurant.addTable(table2);
+        restaurant.addTable(table3);
+        restaurant.addTable(table4);
+        restaurant.addTable(table5);
 
-        try {
-            company.getByDepartmentOrThrow(Department.HR);
-        } catch (EmptyDepartmentException e) {
-            System.out.println(e.getMessage());
-        }
+        restaurant.addWaiter(waiter1);
+        restaurant.addWaiter(waiter2);
+        restaurant.addWaiter(waiter3);
+
+        Order order1 = restaurant.createOrder(1, waiter1);
+        order1.addPlate(p1);
+        order1.addPlate(p2);
+        order1.addPlate(p5);
+        restaurant.closeOrder(order1);
+
+        Order order2 = restaurant.createOrder(2, waiter2);
+        order2.addPlate(p3);
+        order2.addPlate(p4);
+        order2.addPlate(p7);
+        restaurant.closeOrder(order2);
+
+        Order order3 = restaurant.createOrder(3, waiter1);
+        order3.addPlate(p1);
+        order3.addPlate(p6);
+        order3.addPlate(p8);
+        restaurant.closeOrder(order3);
+
+        System.out.println("=== Mesas disponibles ===");
+        restaurant.getTablesAvailable().forEach(System.out::println);
+
+        System.out.println("\n=== Total con propina 15% ===");
+        System.out.printf("Order 1: $%,.0f%n", order1.calculateTotalWithTip(15));
+        System.out.printf("Order 2: $%,.0f%n", order2.calculateTotalWithTip(15));
+        System.out.printf("Order 3: $%,.0f%n", order3.calculateTotalWithTip(15));
+
+        System.out.println("\n=== Platos más vendidos ===");
+        restaurant.getMostSoldDishes().forEach(System.out::println);
+
+        System.out.println("\n=== Mesero del día ===");
+        System.out.println(restaurant.getWaiterOfTheDay());
+
+        System.out.println("\n=== Reporte por categoría ===");
+        restaurant.getReportByCategory().forEach((category, count) ->
+                System.out.println(category + ": " + count));
+
     }
 
 
