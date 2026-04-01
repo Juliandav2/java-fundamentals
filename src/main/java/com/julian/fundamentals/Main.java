@@ -15,6 +15,7 @@ import com.julian.fundamentals.Excercises8.Bus;
 import com.julian.fundamentals.Excercises8.Taxi;
 import com.julian.fundamentals.Excercises8.TransportTerminal;
 import com.julian.fundamentals.Excercises8.Vehicle;
+import com.julian.fundamentals.Exercises9.*;
 import com.julian.fundamentals.Logic.Exercise1;
 
 import java.util.List;
@@ -362,25 +363,46 @@ public class Main {
 //        for (Vehicle vehicle : terminal.getVehiclesAvailable()) {
 //            vehicle.showInfo();
 //        }
+//        System.out.println("\n=== TEST INSUFFICIENT STOCK ===");
+//        try {
+//            PhysicalProduct test = new PhysicalProduct("Test", "T001", "Test", 10.0, 3, 0.5);
+//            test.sell(10);
+//        } catch (InsufficientStockException e) {
+//            System.out.println("Available: " + e.getAvailableStock());
+//            System.out.println("Requested: " + e.getSolicitedStock());
+//        }
+//
+//
+//        System.out.println("\n=== TEST EMPTY CART ===");
+//        try {
+//            ShoppingCart emptyCart = new ShoppingCart("Test");
+//            emptyCart.makePurchase();
+//        } catch (EmptyCartException e) {
+//            System.out.println("Error: " + e.getMessage());
+//        }
 
-        // Prueba 1: stock insuficiente
-        System.out.println("\n=== TEST INSUFFICIENT STOCK ===");
-        try {
-            PhysicalProduct test = new PhysicalProduct("Test", "T001", "Test", 10.0, 3, 0.5);
-            test.sell(10);
-        } catch (InsufficientStockException e) {
-            System.out.println("Available: " + e.getAvailableStock());
-            System.out.println("Requested: " + e.getSolicitedStock());
-        }
+        Company company = new Company();
 
-// Prueba 2: carrito vacío
-        System.out.println("\n=== TEST EMPTY CART ===");
-        try {
-            ShoppingCart emptyCart = new ShoppingCart("Test");
-            emptyCart.makePurchase();
-        } catch (EmptyCartException e) {
-            System.out.println("Error: " + e.getMessage());
-        }
+        ContractorEmployee contractorEmployee1 = new ContractorEmployee("Julian", 3_000_000, Department.SYSTEMS, "Hasbro");
+        ContractorEmployee contractorEmployee2 = new ContractorEmployee("Camila", 2_000_000, Department.HR, "Mazda");
+        ContractorEmployee contractorEmployee3 = new ContractorEmployee("Juan", 7_000_000, Department.ACCOUNTING, "Mazda");
+
+        PermanentEmployee permanentEmployee4 = new PermanentEmployee("Andres", 9_000_000, Department.ACCOUNTING);
+        PermanentEmployee permanentEmployee5 = new PermanentEmployee("kevin", 10_000_000, Department.SALES);
+        PermanentEmployee permanentEmployee6 = new PermanentEmployee("Sol", 23_000_000, Department.SYSTEMS);
+
+        company.RegisterEmployee(contractorEmployee1);
+        company.RegisterEmployee(contractorEmployee2);
+        company.RegisterEmployee(contractorEmployee3);
+        company.RegisterEmployee(permanentEmployee4);
+        company.RegisterEmployee(permanentEmployee5);
+        company.RegisterEmployee(permanentEmployee6);
+
+        System.out.printf("Nómina total: $%,.0f%n", company.calculateTotalPayroll());
+        System.out.println("Best paid: " + company.getBetterPaid());
+        System.out.println("Names: " + company.listNames());
+
+        System.out.println("Dept SYSTEMS: " + company.getByDepartment(Department.SYSTEMS));
     }
 
 }
