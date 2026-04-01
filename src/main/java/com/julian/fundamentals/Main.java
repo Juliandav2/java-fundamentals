@@ -1,6 +1,8 @@
 package com.julian.fundamentals;
 
+import com.julian.fundamentals.Exceptions.EmployeeNotFoundException;
 import com.julian.fundamentals.Exceptions.EmptyCartException;
+import com.julian.fundamentals.Exceptions.EmptyDepartmentException;
 import com.julian.fundamentals.Exceptions.InsufficientStockException;
 import com.julian.fundamentals.Excercise5.Student;
 import com.julian.fundamentals.Excercise5.Teacher;
@@ -380,11 +382,11 @@ public class Main {
 //        } catch (EmptyCartException e) {
 //            System.out.println("Error: " + e.getMessage());
 //        }
-
+//
         Company company = new Company();
 
         ContractorEmployee contractorEmployee1 = new ContractorEmployee("Julian", 3_000_000, Department.SYSTEMS, "Hasbro");
-        ContractorEmployee contractorEmployee2 = new ContractorEmployee("Camila", 2_000_000, Department.HR, "Mazda");
+        ContractorEmployee contractorEmployee2 = new ContractorEmployee("Camila", 2_000_000, Department.SALES, "Mazda");
         ContractorEmployee contractorEmployee3 = new ContractorEmployee("Juan", 7_000_000, Department.ACCOUNTING, "Mazda");
 
         PermanentEmployee permanentEmployee4 = new PermanentEmployee("Andres", 9_000_000, Department.ACCOUNTING);
@@ -403,6 +405,20 @@ public class Main {
         System.out.println("Names: " + company.listNames());
 
         System.out.println("Dept SYSTEMS: " + company.getByDepartment(Department.SYSTEMS));
+
+        try {
+            company.findByName("Chanty");
+        } catch (EmployeeNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            company.getByDepartmentOrThrow(Department.HR);
+        } catch (EmptyDepartmentException e) {
+            System.out.println(e.getMessage());
+        }
     }
+
+
 
 }
