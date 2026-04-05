@@ -19,13 +19,13 @@ public class Table {
         }
 
         this.capacity = capacity;
-        this.tableState = TableState.AVAILABLE;
+        this.tableState = tableState;
     }
 
     public void occupy () {
 
         if (!tableState.equals(TableState.AVAILABLE)) {
-            throw new IllegalArgumentException("Table not available");
+            throw new IllegalStateException("Table not available");
         }
 
         this.tableState = TableState.BUSY;
