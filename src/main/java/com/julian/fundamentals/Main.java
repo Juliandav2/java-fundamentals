@@ -20,6 +20,9 @@ import com.julian.fundamentals.Excercises8.Vehicle;
 import com.julian.fundamentals.Exercises9.*;
 import com.julian.fundamentals.Logic.Exercise1;
 import com.julian.fundamentals.RestaurantSystem.*;
+import com.julian.fundamentals.VideoGamesTournament.*;
+import com.julian.fundamentals.VideoGamesTournament.Team;
+import com.julian.fundamentals.VideoGamesTournament.Tournament;
 
 import java.util.List;
 
@@ -417,82 +420,121 @@ public class Main {
 //        } catch (EmptyDepartmentException e) {
 //            System.out.println(e.getMessage());
 //        }
+//
+//        Restaurant restaurant = new Restaurant("Holy Bar");
+//
+//        Plate p1 = new Plate("Pizza", 25_000, DishCategory.STRONG_PLATE);
+//        Plate p2 = new Plate("Ensalada César", 15_000, DishCategory.ENTRANCE);
+//        Plate p3 = new Plate("Tiramisú", 12_000, DishCategory.DESSERT);
+//        Plate p4 = new Plate("Limonade", 8_000, DishCategory.DRINK);
+//        Plate p5 = new Plate("Pasta Alfredo", 22_000, DishCategory.STRONG_PLATE);
+//        Plate p6 = new Plate("Soup del día", 10_000, DishCategory.ENTRANCE);
+//        Plate p7 = new Plate("Brownie", 9_000, DishCategory.DESSERT);
+//        Plate p8 = new Plate("Juice Natural", 7_000, DishCategory.DRINK);
+//
+//        restaurant.addToMenu(p1);
+//        restaurant.addToMenu(p2);
+//        restaurant.addToMenu(p3);
+//        restaurant.addToMenu(p4);
+//        restaurant.addToMenu(p5);
+//        restaurant.addToMenu(p6);
+//        restaurant.addToMenu(p7);
+//        restaurant.addToMenu(p8);
+//
+//        Table table1 = new Table(1, 5, TableState.AVAILABLE);
+//        Table table2 = new Table(2, 6, TableState.AVAILABLE);
+//        Table table3 = new Table(3, 8, TableState.AVAILABLE);
+//        Table table4 = new Table(4, 3, TableState.AVAILABLE);
+//        Table table5 = new Table(5, 2, TableState.AVAILABLE);
+//
+//        Waiter waiter1 = new Waiter("Jaime", 1);
+//        Waiter waiter2 = new Waiter("Andres", 2);
+//        Waiter waiter3 = new Waiter("Jorge", 3);
+//
+//        restaurant.addTable(table1);
+//        restaurant.addTable(table2);
+//        restaurant.addTable(table3);
+//        restaurant.addTable(table4);
+//        restaurant.addTable(table5);
+//
+//        restaurant.addWaiter(waiter1);
+//        restaurant.addWaiter(waiter2);
+//        restaurant.addWaiter(waiter3);
+//
+//        Order order1 = restaurant.createOrder(1, waiter1);
+//        order1.addPlate(p1);
+//        order1.addPlate(p2);
+//        order1.addPlate(p5);
+//        restaurant.closeOrder(order1);
+//
+//        Order order2 = restaurant.createOrder(2, waiter2);
+//        order2.addPlate(p3);
+//        order2.addPlate(p4);
+//        order2.addPlate(p7);
+//        restaurant.closeOrder(order2);
+//
+//        Order order3 = restaurant.createOrder(3, waiter1);
+//        order3.addPlate(p1);
+//        order3.addPlate(p6);
+//        order3.addPlate(p8);
+//        restaurant.closeOrder(order3);
+//
+//        restaurant.getTablesAvailable().forEach(System.out::println);
+//
+//        System.out.printf("Order 1: $%,.0f%n", order1.calculateTotalWithTip(15));
+//        System.out.printf("Order 2: $%,.0f%n", order2.calculateTotalWithTip(15));
+//        System.out.printf("Order 3: $%,.0f%n", order3.calculateTotalWithTip(15));
+//
 
-        Restaurant restaurant = new Restaurant("Holy Bar");
+//        restaurant.getMostSoldDishes().forEach(System.out::println);
+//        System.out.println(restaurant.getWaiterOfTheDay());
+//        restaurant.getReportByCategory().forEach((category, count) ->
+//                System.out.println(category + ": " + count));
 
-        Plate p1 = new Plate("Pizza", 25_000, DishCategory.STRONG_PLATE);
-        Plate p2 = new Plate("Ensalada César", 15_000, DishCategory.ENTRANCE);
-        Plate p3 = new Plate("Tiramisú", 12_000, DishCategory.DESSERT);
-        Plate p4 = new Plate("Limonade", 8_000, DishCategory.DRINK);
-        Plate p5 = new Plate("Pasta Alfredo", 22_000, DishCategory.STRONG_PLATE);
-        Plate p6 = new Plate("Soup del día", 10_000, DishCategory.ENTRANCE);
-        Plate p7 = new Plate("Brownie", 9_000, DishCategory.DESSERT);
-        Plate p8 = new Plate("Juice Natural", 7_000, DishCategory.DRINK);
 
-        restaurant.addToMenu(p1);
-        restaurant.addToMenu(p2);
-        restaurant.addToMenu(p3);
-        restaurant.addToMenu(p4);
-        restaurant.addToMenu(p5);
-        restaurant.addToMenu(p6);
-        restaurant.addToMenu(p7);
-        restaurant.addToMenu(p8);
+        Tournament tournament = new Tournament("World Cup Gaming");
 
-        Table table1 = new Table(1, 5, TableState.AVAILABLE);
-        Table table2 = new Table(2, 6, TableState.AVAILABLE);
-        Table table3 = new Table(3, 8, TableState.AVAILABLE);
-        Table table4 = new Table(4, 3, TableState.AVAILABLE);
-        Table table5 = new Table(5, 2, TableState.AVAILABLE);
+        Team team1 = new Team("Team Alpha");
+        Team team2 = new Team("Team Beta");
+        Team team3 = new Team("Team Gamma");
 
-        Waiter waiter1 = new Waiter("Jaime", 1);
-        Waiter waiter2 = new Waiter("Andres", 2);
-        Waiter waiter3 = new Waiter("Jorge", 3);
+        ProfessionalPlayer player1 = new ProfessionalPlayer("Julian", "Julian28", Rol.DAMAGE, "Alpha Corp");
+        ProfessionalPlayer player2 = new ProfessionalPlayer("Jose", "Jose33", Rol.HEALER, "Beta Corp");
+        ProfessionalPlayer player3 = new ProfessionalPlayer("Adrian", "Adrian43", Rol.TANK, "Gamma Corp");
 
-        restaurant.addTable(table1);
-        restaurant.addTable(table2);
-        restaurant.addTable(table3);
-        restaurant.addTable(table4);
-        restaurant.addTable(table5);
+        AmateurPlayer player4 = new AmateurPlayer("Sofia", "Sofia47", Rol.SUPPORT, 2);
+        AmateurPlayer player5 = new AmateurPlayer("Natalia", "Natalia15", Rol.DAMAGE, 4);
+        AmateurPlayer player6 = new AmateurPlayer("Maria", "Maria00", Rol.TANK, 1);
 
-        restaurant.addWaiter(waiter1);
-        restaurant.addWaiter(waiter2);
-        restaurant.addWaiter(waiter3);
+        team1.addPlayer(player1);
+        team1.addPlayer(player4);
+        team2.addPlayer(player2);
+        team2.addPlayer(player5);
+        team3.addPlayer(player3);
+        team3.addPlayer(player6);
 
-        Order order1 = restaurant.createOrder(1, waiter1);
-        order1.addPlate(p1);
-        order1.addPlate(p2);
-        order1.addPlate(p5);
-        restaurant.closeOrder(order1);
+        tournament.addTeam(team1);
+        tournament.addTeam(team2);
+        tournament.addTeam(team3);
 
-        Order order2 = restaurant.createOrder(2, waiter2);
-        order2.addPlate(p3);
-        order2.addPlate(p4);
-        order2.addPlate(p7);
-        restaurant.closeOrder(order2);
+        Party party1 = new Party(team1, team2);
+        party1.finish(team1);
+        tournament.addParty(party1);
 
-        Order order3 = restaurant.createOrder(3, waiter1);
-        order3.addPlate(p1);
-        order3.addPlate(p6);
-        order3.addPlate(p8);
-        restaurant.closeOrder(order3);
+        Party party2 = new Party(team1, team3);
+        party2.finish(team3);
+        tournament.addParty(party2);
 
-        System.out.println("=== Mesas disponibles ===");
-        restaurant.getTablesAvailable().forEach(System.out::println);
+        System.out.println("===== Standings =====");
+        tournament.getStandingsTables().forEach((team, wins) -> System.out.println(team + ": " + wins + " wins"));
+        System.out.println("\n=== Winner Team ===");
+        System.out.println(tournament.getWinnerTeam());
+        System.out.println("\n=== Statistics ===");
+        System.out.println(tournament.getStatistics());
+        System.out.println("\n=== Players by rol DAMAGE ===");
+        tournament.getPlayersByRol(Rol.DAMAGE).forEach(System.out::println);
 
-        System.out.println("\n=== Total con propina 15% ===");
-        System.out.printf("Order 1: $%,.0f%n", order1.calculateTotalWithTip(15));
-        System.out.printf("Order 2: $%,.0f%n", order2.calculateTotalWithTip(15));
-        System.out.printf("Order 3: $%,.0f%n", order3.calculateTotalWithTip(15));
 
-        System.out.println("\n=== Platos más vendidos ===");
-        restaurant.getMostSoldDishes().forEach(System.out::println);
-
-        System.out.println("\n=== Mesero del día ===");
-        System.out.println(restaurant.getWaiterOfTheDay());
-
-        System.out.println("\n=== Reporte por categoría ===");
-        restaurant.getReportByCategory().forEach((category, count) ->
-                System.out.println(category + ": " + count));
 
     }
 
