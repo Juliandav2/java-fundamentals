@@ -24,7 +24,7 @@ public class Team {
 
     public void addPlayer (Player player) {
 
-        if (players.size() > 5) {
+        if (players.size() >= 5) {
             throw new TeamFullException("The team is full");
         }
 
