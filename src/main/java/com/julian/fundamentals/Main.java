@@ -1,30 +1,7 @@
 package com.julian.fundamentals;
 
-import com.julian.fundamentals.Exceptions.EmployeeNotFoundException;
-import com.julian.fundamentals.Exceptions.EmptyCartException;
-import com.julian.fundamentals.Exceptions.EmptyDepartmentException;
-import com.julian.fundamentals.Exceptions.InsufficientStockException;
-import com.julian.fundamentals.Excercise5.Student;
-import com.julian.fundamentals.Excercise5.Teacher;
-import com.julian.fundamentals.Excercise5.University;
-import com.julian.fundamentals.Excercise6.*;
-import com.julian.fundamentals.Excercises3.*;
-import com.julian.fundamentals.Excercises4.Doctor;
-import com.julian.fundamentals.Excercises4.Hospital;
-import com.julian.fundamentals.Excercises4.Patient;
-import com.julian.fundamentals.Excercises7.*;
-import com.julian.fundamentals.Excercises8.Bus;
-import com.julian.fundamentals.Excercises8.Taxi;
-import com.julian.fundamentals.Excercises8.TransportTerminal;
-import com.julian.fundamentals.Excercises8.Vehicle;
-import com.julian.fundamentals.Exercises9.*;
-import com.julian.fundamentals.Logic.Exercise1;
-import com.julian.fundamentals.RestaurantSystem.*;
-import com.julian.fundamentals.VideoGamesTournament.*;
-import com.julian.fundamentals.VideoGamesTournament.Team;
-import com.julian.fundamentals.VideoGamesTournament.Tournament;
-
-import java.util.List;
+import com.julian.fundamentals.Excercise5.Student1;
+import com.julian.fundamentals.OnlineCoursePlatform.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -491,49 +468,110 @@ public class Main {
 //        restaurant.getReportByCategory().forEach((category, count) ->
 //                System.out.println(category + ": " + count));
 
+//
+//        Tournament tournament = new Tournament("World Cup Gaming");
+//
+//        Team team1 = new Team("Team Alpha");
+//        Team team2 = new Team("Team Beta");
+//        Team team3 = new Team("Team Gamma");
+//
+//        ProfessionalPlayer player1 = new ProfessionalPlayer("Julian", "Julian28", Rol.DAMAGE, "Alpha Corp");
+//        ProfessionalPlayer player2 = new ProfessionalPlayer("Jose", "Jose33", Rol.HEALER, "Beta Corp");
+//        ProfessionalPlayer player3 = new ProfessionalPlayer("Adrian", "Adrian43", Rol.TANK, "Gamma Corp");
+//
+//        AmateurPlayer player4 = new AmateurPlayer("Sofia", "Sofia47", Rol.SUPPORT, 2);
+//        AmateurPlayer player5 = new AmateurPlayer("Natalia", "Natalia15", Rol.DAMAGE, 4);
+//        AmateurPlayer player6 = new AmateurPlayer("Maria", "Maria00", Rol.TANK, 1);
+//
+//        team1.addPlayer(player1);
+//        team1.addPlayer(player4);
+//        team2.addPlayer(player2);
+//        team2.addPlayer(player5);
+//        team3.addPlayer(player3);
+//        team3.addPlayer(player6);
+//
+//        tournament.addTeam(team1);
+//        tournament.addTeam(team2);
+//        tournament.addTeam(team3);
+//
+//        Party party1 = new Party(team1, team2);
+//        party1.finish(team1);
+//        tournament.addParty(party1);
+//
+//        Party party2 = new Party(team1, team3);
+//        party2.finish(team3);
+//        tournament.addParty(party2);
+//
+//        System.out.println("===== Standings =====");
+//        tournament.getStandingsTables().forEach((team, wins) -> System.out.println(team + ": " + wins + " wins"));
+//        System.out.println("\n=== Winner Team ===");
+//        System.out.println(tournament.getWinnerTeam());
+//        System.out.println("\n=== Statistics ===");
+//        System.out.println(tournament.getStatistics());
+//        System.out.println("\n=== Players by rol DAMAGE ===");
+//        tournament.getPlayersByRol(Rol.DAMAGE).forEach(System.out::println);
 
-        Tournament tournament = new Tournament("World Cup Gaming");
+        Platform platform = new Platform("Coursera");
 
-        Team team1 = new Team("Team Alpha");
-        Team team2 = new Team("Team Beta");
-        Team team3 = new Team("Team Gamma");
+        Instructor instructor1 = new Instructor("Juan", "juna@gmail.com", 1, "Programming");
+        Instructor instructor2 = new Instructor("Andres", "Andres@gmail.com", 2, "Data Bases");
+        Instructor instructor3 = new Instructor("Camilo", "Camilo@gmail.com", 3, "IA");
 
-        ProfessionalPlayer player1 = new ProfessionalPlayer("Julian", "Julian28", Rol.DAMAGE, "Alpha Corp");
-        ProfessionalPlayer player2 = new ProfessionalPlayer("Jose", "Jose33", Rol.HEALER, "Beta Corp");
-        ProfessionalPlayer player3 = new ProfessionalPlayer("Adrian", "Adrian43", Rol.TANK, "Gamma Corp");
+        Student student1 = new Student("Julian", "julian@gmail.com",4);
+        Student student2 = new Student("Carolina", "carolina@gmail.com",5);
+        Student student3 = new Student("Steven", "steven@gmail.com",6);
+        Student student4 = new Student("David", "david@gmail.com",7);
 
-        AmateurPlayer player4 = new AmateurPlayer("Sofia", "Sofia47", Rol.SUPPORT, 2);
-        AmateurPlayer player5 = new AmateurPlayer("Natalia", "Natalia15", Rol.DAMAGE, 4);
-        AmateurPlayer player6 = new AmateurPlayer("Maria", "Maria00", Rol.TANK, 1);
+        Course course1 = new Course("Java Basics", 10, instructor1, Category.PROGRAMMING, Level.BEGINNER);
+        Course course2 = new Course("UI Design", 5, instructor2, Category.DESIGN, Level.INTERMEDIATE);
+        Course course3 = new Course("Digital Marketing", 3, instructor3, Category.MARKETING, Level.BEGINNER);
+        Course course4 = new Course("Spring Boot", 8, instructor1, Category.PROGRAMMING, Level.ADVANCED);
+        Course course5 = new Course("English B2", 15, instructor2, Category.LANGUAGES, Level.INTERMEDIATE);
 
-        team1.addPlayer(player1);
-        team1.addPlayer(player4);
-        team2.addPlayer(player2);
-        team2.addPlayer(player5);
-        team3.addPlayer(player3);
-        team3.addPlayer(player6);
+        platform.registerUser(instructor1);
+        platform.registerUser(instructor2);
+        platform.registerUser(instructor3);
+        platform.registerUser(student1);
+        platform.registerUser(student2);
+        platform.registerUser(student3);
+        platform.registerUser(student4);
 
-        tournament.addTeam(team1);
-        tournament.addTeam(team2);
-        tournament.addTeam(team3);
+        platform.addCourse(course1);
+        platform.addCourse(course2);
+        platform.addCourse(course3);
+        platform.addCourse(course4);
+        platform.addCourse(course5);
 
-        Party party1 = new Party(team1, team2);
-        party1.finish(team1);
-        tournament.addParty(party1);
+        student1.enroll(course1);
+        student1.enroll(course4);
+        student2.enroll(course1);
+        student2.enroll(course2);
+        student3.enroll(course3);
+        student4.enroll(course1);
+        student4.enroll(course5);
 
-        Party party2 = new Party(team1, team3);
-        party2.finish(team3);
-        tournament.addParty(party2);
+        course1.updateProgress(student1, 100);
+        course4.updateProgress(student1, 90);
+        course1.updateProgress(student2, 75);
+        course2.updateProgress(student2, 85);
+        course3.updateProgress(student3, 40);
+        course1.updateProgress(student4, 95);
+        course5.updateProgress(student4, 88);
 
-        System.out.println("===== Standings =====");
-        tournament.getStandingsTables().forEach((team, wins) -> System.out.println(team + ": " + wins + " wins"));
-        System.out.println("\n=== Winner Team ===");
-        System.out.println(tournament.getWinnerTeam());
-        System.out.println("\n=== Statistics ===");
-        System.out.println(tournament.getStatistics());
-        System.out.println("\n=== Players by rol DAMAGE ===");
-        tournament.getPlayersByRol(Rol.DAMAGE).forEach(System.out::println);
+        System.out.println("=== Cursos por categoria PROGRAMMING ===");
+        platform.getCoursesByCategory(Category.PROGRAMMING).forEach(System.out::println);
 
+        System.out.println("\n=== Cursos disponibles ===");
+        platform.getAvailableCourses().forEach(System.out::println);
+
+        System.out.println("\n=== Estudiantes destacados ===");
+        platform.getFeaturedStudents().forEach(System.out::println);
+
+        System.out.println("\n=== Cursos mas populares ===");
+        platform.getMostPopularCourses().forEach(System.out::println);
+
+        System.out.println("\n=== Estadisticas ===");
+        System.out.println(platform.getStatistics());
 
 
     }

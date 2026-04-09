@@ -5,7 +5,7 @@ import java.util.*;
 public class University {
 
     private String name;
-    private List<Student> students;
+    private List<Student1> students;
     private Map<String, Teacher> teachers;
 
     public University (String name) {
@@ -23,11 +23,11 @@ public class University {
         teachers.put(teacher.getSubject(), teacher);
     }
 
-    public void addStudent (Student student) {
+    public void addStudent (Student1 student) {
         students.add(student);
     }
 
-    public void assignStudentToSubject (String subject, Student student) {
+    public void assignStudentToSubject (String subject, Student1 student) {
 
         Teacher teacher = teachers.get(subject);
         if (teacher == null) {
@@ -39,14 +39,14 @@ public class University {
 
     public void getStatistics () {
 
-        Student bestStudent = null;
+        Student1 bestStudent = null;
         double bestAverage = 0.0;
         double totalAverage = 0.0;
         int enrolled = students.size();
         int approved = 0;
         int reproved = 0;
 
-        for (Student student : students) {
+        for (Student1 student : students) {
             if (student.approve()) {
                 approved ++;
             }
@@ -59,7 +59,7 @@ public class University {
 
         double generalAverage = students.isEmpty() ? 0.0 : totalAverage / students.size();
 
-        for (Student student : students) {
+        for (Student1 student : students) {
             if (student.getAverage() > bestAverage) {
                 bestAverage = student.getAverage();
                 bestStudent = student;
@@ -74,8 +74,8 @@ public class University {
 
     }
 
-    public List<Student> getRankingStudents () {
-        List<Student> ranking = new ArrayList<>(students);
+    public List<Student1> getRankingStudents () {
+        List<Student1> ranking = new ArrayList<>(students);
         Collections.sort(ranking, (a, b) -> Double.compare(b.getAverage(), a.getAverage()));
         return ranking;
     }

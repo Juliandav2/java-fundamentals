@@ -3,12 +3,12 @@ package com.julian.fundamentals.Excercise5;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Student extends Person implements Evaluable {
+public class Student1 extends Person implements Evaluable {
 
     private String universityDegree;
     private List<Double> notes;
 
-    public Student (String name, String id, String universityDegree) {
+    public Student1(String name, String id, String universityDegree) {
         super(name, id);
 
         if (universityDegree == null || universityDegree.isBlank()) {

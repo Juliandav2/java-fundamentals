@@ -6,7 +6,7 @@ import java.util.List;
 public class Teacher extends Person {
 
     private String subject;
-    private List<Student> students;
+    private List<Student1> students;
 
     public Teacher (String name, String id, String subject) {
         super(name, id);
@@ -19,7 +19,7 @@ public class Teacher extends Person {
         students = new ArrayList<>();
     }
 
-    public void AssignStudent (Student student) {
+    public void AssignStudent (Student1 student) {
         students.add(student);
     }
 
@@ -28,9 +28,9 @@ public class Teacher extends Person {
         return "Teacher";
     }
 
-    public List<Student> getApproveStudents () {
-        List<Student> approved = new ArrayList<>();
-        for (Student student : students) {
+    public List<Student1> getApproveStudents () {
+        List<Student1> approved = new ArrayList<>();
+        for (Student1 student : students) {
               if (student.approve()) {
                   approved.add(student);
               }
@@ -39,11 +39,11 @@ public class Teacher extends Person {
         return approved;
     }
 
-    public Student getBestStudent () {
-        Student studentWinner = null;
+    public Student1 getBestStudent () {
+        Student1 studentWinner = null;
         double bestAverage = 0.0;
 
-        for (Student student : students) {
+        for (Student1 student : students) {
             if (student.getAverage() > bestAverage) {
                 bestAverage = student.getAverage();
                 studentWinner = student;
